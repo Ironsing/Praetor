@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, session, url_for
 from sqlalchemy.orm import Session
 from database.models import *
 import hashlib
+from datetime import timedelta
 from cryptography.fernet import Fernet
 import json
 
@@ -11,6 +12,7 @@ secure_obj = Fernet(key)
 session1 = Session(engine)
 server = Flask(__name__)
 server.secret_key = "consortmentalization"
+server.permanent_session_lifetime = timedelta(minutes=1440)
 
 @server.route("/")
 def homepage():
