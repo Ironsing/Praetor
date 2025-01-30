@@ -103,6 +103,3 @@ def showpasses_page(username):
             pswrds.append(secure_obj.decrypt(result.pswrd.encode()).decode())
         return render_template("showpasses.html", len=len(pswrds), user=session.get("username"), passwords=pswrds, website=websites)
     
-@server.route("/redirect1")
-def redirect1():
-    return redirect(f"/users/{session.get('username')}/showpasses")

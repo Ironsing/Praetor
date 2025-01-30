@@ -31,7 +31,7 @@
                   delete_button = document.getElementById("d{{i}}")
                   function deleteItem()
                   {
-                      fetch("http://127.0.0.1:5000/users/{{user}}/showpasses", {headers: {"Content-Type": "application/json"}, method: "DELETE", body: JSON.stringify({website1: "{{website[i]}}", password1: "{{passwords[i]}}"})})
+                      fetch("https://praetor.onrender.com/users/{{user}}/showpasses", {headers: {"Content-Type": "application/json"}, method: "DELETE", body: JSON.stringify({website1: "{{website[i]}}", password1: "{{passwords[i]}}"})})
                       document.getElementById("{{i}}").remove()
                   }
                   delete_button.addEventListener("click", deleteItem)
