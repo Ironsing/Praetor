@@ -106,6 +106,3 @@ def showpasses_page(username):
 @server.route("/redirect1")
 def redirect1():
     return redirect(f"/users/{session.get('username')}/showpasses")
-
-
-server.run()
