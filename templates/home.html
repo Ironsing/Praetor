@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+      <link rel="icon" type = "image/jpg" href="../static/images/icon-nobg.png">
+      <title> Praetor </title>
+   </head>
+   
+   <body>
+      <div style="text-align: center;"> <img style="text-align:center;" src="../static/images/icon-nobg.png" height="60px"> </div>
+      <div>
+         <h1 style="text-align:center;"> Welcome to Praetor. </h1>
+      </div>
+      <h2 style="text-align: center; font-weight:normal;"> This website is brought to you by the Consortium. </h2>
+      <hr>
+      <a href="/register">
+         <h1 style="text-align:center; font-weight:normal;"> <b>Register</b> </h1>
+      </a>
+      <a href="/login">
+         <h1 style="text-align:center; font-weight:normal;"> <b>Login</b> </h1>
+      </a>
+      {% if is_loggedin == True %}
+         <a href="/users/{{name}}">
+            <h1 style="text-align:center; font-weight:normal;"> <b>My Passwords</b> </h1>
+         </a>
+      {% endif %}
+   </body>
+   
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="icon" type = "image/jpg" href="../static/images/icon-nobg.png">
+        <title> Praetor: {{userid}} </title>
+    </head>
+
+    <body>
+        <div style="text-align: center;"> <img style="text-align:center;" src="../static/images/icon-nobg.png" height="60px"> </div>
+        <div>
+        <h1 style="text-align:center; font-weight:normal;"> <a href="/home"> <b>Home </b> </a> <br> <br> {{userid}} </h1>
+        </div>
+        <hr>
+        <a href="/users/{{userid}}/showpasses"> <h1 style="text-align:center; font-weight:normal;"> <b>Show Passwords </b> </h1> </a>
+        <a href="/users/{{userid}}/addpasses"> <h1 style="text-align:center; font-weight:normal;"> <b>Add Passwords</b> </h1> </a>
+    </body>
+    
+</html>

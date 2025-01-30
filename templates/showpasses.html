@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="icon" type = "image/jpg" href="/static/images/icon-nobg.png">
+      <title> Praetor: {{user}}</title>
+   </head>
+   <body>
+      <div style="text-align: center;"> <img style="text-align:center;" src="/static/images/icon-nobg.png" height="60px"> </div>
+      <div>
+         <h1 style="text-align:center; font-weight:normal;"> <a href="/home"> <b>Home </b> </a> <br> <br> <a href="/users/{{user}}"><b>{{user}} </b></a> </h1>
+      </div>
+      <hr>
+      <div style="text-align:center">
+         <table style="width:100%; border: 2px solid black; border-collapse:collapse">
+            <tr>
+               <td style="border: 2px solid black;"> <b> Website</b> </td>
+               <td style="border: 2px solid black;"><b> Password </b></td>
+            </tr>
+            {% for i in range(len) %}
+            <tr id="{{i}}">
+               <td style="border: 2px solid black;"> {{website[i]}} </td>
+               <td style="border: 2px solid black;"> {{passwords[i]}} <button id="b{{i}}"> Copy </button> <button id="d{{i}}"> Delete </button></td>
+               <script>
+                  copy_button = document.getElementById("b{{i}}")
+                  function onClick()
+                  {
+                      navigator.clipboard.writeText("{{passwords[i]}}")
+                  }
+                  copy_button.addEventListener("click", onClick)    
+                  
+                  delete_button = document.getElementById("d{{i}}")
+                  function deleteItem()
+                  {
+                      fetch("http://127.0.0.1:5000/users/{{user}}/showpasses", {headers: {"Content-Type": "application/json"}, method: "DELETE", body: JSON.stringify({website1: "{{website[i]}}", password1: "{{passwords[i]}}"})})
+                      document.getElementById("{{i}}").remove()
+                  }
+                  delete_button.addEventListener("click", deleteItem)
+               </script>
+            </tr>
+            {% endfor %}
+         </table>
+      </div>
+   </body>
+</html>
