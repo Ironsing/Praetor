@@ -21,7 +21,7 @@ def homepage():
     
 @server.route("/home")
 def homepage_alt():
-    return render_template("home.html")
+    return render_template("home.html", is_loggedin=session.get("is_logged_in"), name=session.get("username"))
 
 @server.route("/login", methods=["GET", "POST"])
 def login_page():

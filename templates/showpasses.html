@@ -10,6 +10,30 @@
          <h1 style="text-align:center; font-weight:normal;"> <a href="/home"> <b>Home </b> </a> <br> <br> <a href="/users/{{user}}"><b>{{user}} </b></a> </h1>
       </div>
       <hr>
+      <button id="gen"> Generate Password </button>
+      <p id="box"> </p>
+      <button id="copier"> Copy </button>
+      <script>
+         gen_button = document.getElementById("gen")
+         box = document.getElementById("box")
+         copier = document.getElementById("copier")
+
+         let textocopy
+         function ifClicked()
+         {
+            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var output =  Array.from({ length: 12 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+            box.innerHTML = output
+            textocopy = output
+         }
+         function toCopy()
+         {
+            navigator.clipboard.writeText(textocopy)
+         }
+
+         gen_button.addEventListener("click", ifClicked)
+         copier.addEventListener("click", toCopy)
+      </script>
       <div style="text-align:center">
          <table style="width:100%; border: 2px solid black; border-collapse:collapse">
             <tr>
